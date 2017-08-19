@@ -1,7 +1,7 @@
 variable "name" {}
 
 variable "ami" {
-  default = "ami-3ddf3744"
+  default = "ami-ab0ff9d2"
 }
 
 variable "vpc_id" {}
