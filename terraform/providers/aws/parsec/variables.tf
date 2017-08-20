@@ -2,9 +2,9 @@ variable "name" {
   default = "player1"
 }
 
-variable "region" {
-  default = "eu-west-1"
-}
+variable "region" {}
+
+variable "spot_price" {}
 
 variable "enabled" {
   default = false

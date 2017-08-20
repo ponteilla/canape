@@ -1,3 +1,7 @@
+data "aws_region" "current" {
+  current = true
+}
+
 resource "aws_autoscaling_group" "default" {
   name = "parsec-${replace(var.name, "_", "-")}"
 
@@ -26,11 +30,11 @@ resource "aws_autoscaling_group" "default" {
 
 resource "aws_launch_configuration" "default" {
   name_prefix   = "parsec-${replace(var.name, "_", "-")}-"
-  image_id      = "${var.ami}"
+  image_id      = "${lookup(var.amis, data.aws_region.current.name)}"
   instance_type = "g2.2xlarge"
   user_data     = "${data.template_file.default.rendered}"
 
-  spot_price = "0.767"
+  spot_price = "${var.spot_price}"
 
   security_groups = [
     "${aws_security_group.default.id}",

@@ -7,11 +7,13 @@ args=("$@")
 function __get_server_key() {
   [[ -f ".canape" ]] && source .canape
 
-  if [ -z $TF_VAR_server_key ]; then
+  if [ -z $TF_VAR_region ] || [ -z $TF_VAR_server_key ] || [ -z $TF_VAR_spot_price ]; then
     echo "You need to build first."
     exit 1
   fi
 
+  export TF_VAR_region
+  export TF_VAR_spot_price
   export TF_VAR_server_key
 }
 
@@ -25,7 +27,9 @@ function build() {
     exit 1
   fi
 
-  echo TF_VAR_server_key=${args[1]} > .canape
+  echo TF_VAR_region=${args[1]} > .canape
+  echo TF_VAR_spot_price=${args[2]} >> .canape
+  echo TF_VAR_server_key=${args[3]} >> .canape
   __get_server_key
   __tf init
   __tf apply
@@ -53,7 +57,7 @@ function stop() {
 
 function main() {
   if [ -z ${args[0]} ]; then
-    echo "usage: canape {build server_key|destroy|start|stop}"
+    echo "usage: canape {build region bid_price server_key|destroy|start|stop}"
     exit 1
   fi
 
