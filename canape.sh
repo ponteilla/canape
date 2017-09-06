@@ -35,7 +35,6 @@ function build() {
   __tf apply
 }
 
-
 function destroy() {
   __get_server_key
   __tf destroy -force

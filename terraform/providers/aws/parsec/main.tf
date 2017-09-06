@@ -25,7 +25,7 @@ module "parsec" {
   name             = "${var.name}"
   vpc_id           = "${module.vpc.vpc_id}"
   subnet_ids       = "${module.vpc.public_subnets}"
-  root_volume_size = 40
+  root_volume_size = "${var.volume_size}"
   spot_price       = "${var.spot_price}"
   enabled          = "${var.enabled}"
 

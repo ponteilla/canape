@@ -8,7 +8,7 @@ Handy for rainy weekends.
 - AWS CLI
 - Terraform
 
-If you are on Mac and use Homebrew, simply run `brew install awscli terraform`.
+If you are on Mac and use Homebrew, simply run `brew install awscli terraform`
 
 ## Usage
 

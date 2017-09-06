@@ -4,6 +4,10 @@ variable "name" {
 
 variable "region" {}
 
+variable "volume_size" {
+  default = 40
+}
+
 variable "spot_price" {}
 
 variable "enabled" {
