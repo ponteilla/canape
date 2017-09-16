@@ -56,7 +56,7 @@ function stop() {
 
 function main() {
   if [ -z ${args[0]} ]; then
-    echo "usage: canape {build region bid_price server_key|destroy|start|stop}"
+    echo "usage: canape.sh {build region bid_price server_key|destroy|start|stop}"
     exit 1
   fi
 
