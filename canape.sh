@@ -17,6 +17,10 @@ function __get_server_key() {
   export TF_VAR_server_key
 }
 
+function __tf_apply() {
+  pushd terraform/providers/aws/parsec > /dev/null && terraform apply -auto-approve && popd > /dev/null
+}
+
 function __tf() {
   pushd terraform/providers/aws/parsec > /dev/null && terraform "$@" && popd > /dev/null
 }
@@ -32,7 +36,7 @@ function build() {
   echo TF_VAR_server_key=${args[3]} >> .canape
   __get_server_key
   __tf init
-  __tf apply
+  __tf_apply
 }
 
 function destroy() {
@@ -44,14 +48,14 @@ function destroy() {
 function start() {
   export TF_VAR_enabled=true
   __get_server_key
-  __tf apply
+  __tf_apply
   local instance_public_ip="$(__tf output -module=parsec instance_public_ip)"
   echo -e "\nYour instance public ip is: $instance_public_ip.\nIt will be ready soon."
 }
 
 function stop() {
   __get_server_key
-  __tf apply
+  __tf_apply
 }
 
 function main() {

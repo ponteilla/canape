@@ -9,12 +9,11 @@ terraform {
 data "aws_availability_zones" "azs" {}
 
 module "vpc" {
-  source = "github.com/terraform-community-modules/tf_aws_vpc?ref=v1.0.8"
+  source = "terraform-aws-modules/vpc/aws"
 
-  name               = "parsec"
-  cidr               = "10.0.0.0/16"
-  public_subnets     = ["10.0.101.0/24", "10.0.102.0/24"]
-  enable_dns_support = "true"
+  name           = "parsec"
+  cidr           = "10.0.0.0/16"
+  public_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
 
   azs = ["${data.aws_availability_zones.azs.names[0]}", "${data.aws_availability_zones.azs.names[1]}"]
 }

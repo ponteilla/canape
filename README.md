@@ -13,7 +13,8 @@ If you are on OS X and use Homebrew, just `brew install awscli terraform`
 ## Usage
 
 [Make sure your AWS CLI is set up with your credentials](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
-You will also need the `server_key` from your [Parsec configuration settings](https://parsec.tv/account).
+
+You will also need the `server_key` from Parsec. Go to the [Add your own gaming computer](parsecgaming.com/add-computer/own) page and "click here to see extra steps".
 
 1. Initialise AWS resources for your instance: `./canape.sh build eu-west-1 0.20 server_key`
 2. Start it: `./canape.sh start`
