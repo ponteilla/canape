@@ -4,10 +4,10 @@ variable "amis" {
   type = "map"
 
   default = {
-    "eu-west-1"    = "ami-ab0ff9d2"
-    "eu-central-1" = "ami-626cc20d"
-    "us-east-1"    = "ami-6dd6f916"
-    "us-west-1"    = "ami-f0072c90"
+    "eu-west-1"    = "ami-462ca93f"
+    "eu-central-1" = "ami-9eed66f1"
+    "us-east-1"    = "ami-e398f399"
+    "us-west-1"    = "ami-696b6f09"
   }
 }
 

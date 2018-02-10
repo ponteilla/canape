@@ -58,8 +58,22 @@ resource "aws_security_group" "default" {
 
   ingress {
     from_port   = 8000
-    to_port     = 8040
+    to_port     = 8011
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 8000
+    to_port     = 8011
     protocol    = "UDP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 5900
+    to_port     = 5900
+    protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
