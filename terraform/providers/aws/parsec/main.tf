@@ -11,7 +11,7 @@ data "aws_availability_zones" "azs" {}
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name           = "parsec"
+  name           = "parsec-${substr(var.server_key, 0, 4)}"
   cidr           = "10.0.0.0/16"
   public_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
 
@@ -21,7 +21,7 @@ module "vpc" {
 module "parsec" {
   source = "../../../modules/aws/parsec"
 
-  name             = "${var.name}"
+  name             = "${substr(var.server_key, 0, 4)}"
   vpc_id           = "${module.vpc.vpc_id}"
   subnet_ids       = "${module.vpc.public_subnets}"
   root_volume_size = "${var.volume_size}"

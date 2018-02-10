@@ -1,7 +1,3 @@
-variable "name" {
-  default = "player1"
-}
-
 variable "region" {}
 
 variable "volume_size" {
