@@ -1,6 +1,4 @@
-data "aws_region" "current" {
-  current = true
-}
+data "aws_region" "current" {}
 
 resource "aws_autoscaling_group" "default" {
   name = "parsec-${replace(var.name, "_", "-")}"
@@ -67,13 +65,6 @@ resource "aws_security_group" "default" {
     from_port   = 8000
     to_port     = 8011
     protocol    = "UDP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 5900
-    to_port     = 5900
-    protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
