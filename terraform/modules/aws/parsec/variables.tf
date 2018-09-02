@@ -20,7 +20,7 @@ variable "subnet_ids" {
 }
 
 variable "root_volume_size" {
-  default = "30"
+  default = "40"
 }
 
 variable "enabled" {

@@ -1,7 +1,7 @@
 variable "region" {}
 
 variable "volume_size" {
-  default = 50
+  default = 200
 }
 
 variable "spot_price" {}
