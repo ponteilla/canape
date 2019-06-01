@@ -3,9 +3,7 @@ data "aws_region" "current" {}
 resource "aws_autoscaling_group" "default" {
   name = "parsec-${replace(var.name, "_", "-")}"
 
-  vpc_zone_identifier = [
-    "${var.subnet_ids}",
-  ]
+  vpc_zone_identifier = "${var.subnet_ids}"
 
   desired_capacity          = "${var.enabled ? 1 : 0}"
   min_size                  = "0"
@@ -29,7 +27,7 @@ resource "aws_autoscaling_group" "default" {
 resource "aws_launch_configuration" "default" {
   name_prefix   = "parsec-${replace(var.name, "_", "-")}-"
   image_id      = "${lookup(var.amis, data.aws_region.current.name)}"
-  instance_type = "g2.2xlarge"
+  instance_type = "g3s.xlarge"
   user_data     = "${data.template_file.default.rendered}"
 
   spot_price = "${var.spot_price}"
@@ -82,7 +80,7 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "parsec-${replace(var.name, "_", "-")}"
   }
 }
@@ -90,7 +88,7 @@ resource "aws_security_group" "default" {
 data "template_file" "default" {
   template = "${file("${path.module}/user_data.tpl")}"
 
-  vars {
+  vars = {
     server_key = "${var.server_key}"
   }
 }

@@ -15,7 +15,7 @@ module "vpc" {
   cidr           = "10.0.0.0/16"
   public_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
 
-  azs = ["${data.aws_availability_zones.azs.names[0]}", "${data.aws_availability_zones.azs.names[1]}"]
+  azs = ["${data.aws_availability_zones.azs.names[0]}", "${data.aws_availability_zones.azs.names[1]}", "${data.aws_availability_zones.azs.names[2]}"]
 }
 
 module "parsec" {

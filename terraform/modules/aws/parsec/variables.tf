@@ -4,10 +4,10 @@ variable "amis" {
   type = "map"
 
   default = {
-    "eu-west-1"    = "ami-1e695067"
-    "eu-central-1" = "ami-060823ed"
-    "us-east-1"    = "ami-4efe9931"
-    "us-west-1"    = "ami-e06d7680"
+    "eu-west-1"    = "ami-836c56fa"
+    "eu-central-1" = "ami-d33f0a38"
+    "us-east-1"    = "ami-2a157b55"
+    "us-west-1"    = "ami-18a2b978"
   }
 }
 
@@ -20,7 +20,7 @@ variable "subnet_ids" {
 }
 
 variable "root_volume_size" {
-  default = "40"
+  default = "250"
 }
 
 variable "enabled" {

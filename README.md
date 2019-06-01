@@ -1,5 +1,6 @@
 # canape
-A tool to manage your [Parsec](https://parsec.tv) AWS instance. It provisions an AWS GPU instance (g2.2xlarge) with the Parsec AMI at a [Spot price](https://aws.amazon.com/ec2/spot/pricing/). At the moment, only 4 AWS regions are supported: `eu-west-1`, `eu-central-1`,`us-west-1`, `us-east-1`.
+
+A tool to manage your [Parsec](https://parsec.tv) AWS instance. It provisions an AWS GPU instance (g3s.xlarge) with the Parsec AMI at a [Spot price](https://aws.amazon.com/ec2/spot/pricing/). At the moment, only 4 AWS regions are supported: `eu-west-1`, `eu-central-1`,`us-west-1`, `us-east-1`.
 
 Handy for rainy weekends.
 
